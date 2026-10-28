@@ -1,0 +1,56 @@
+{
+  "task": "sms_spam_detection",
+  "n_samples": 5169,
+  "n_classes": 2,
+  "class_names": [
+    "ham",
+    "spam"
+  ],
+  "class_counts": {
+    "ham": 4516,
+    "spam": 653
+  },
+  "class_balance": {
+    "ham": 0.873669955503966,
+    "spam": 0.12633004449603405
+  },
+  "imbalance_ratio": 6.915773353751915,
+  "n_duplicates_removed": 403,
+  "n_empty_text_dropped": "see acquisition log",
+  "text_length_chars": {
+    "min": 2,
+    "max": 910,
+    "mean": 79.34455407235443,
+    "median": 61.0
+  },
+  "text_length_words": {
+    "min": 1,
+    "max": 171,
+    "mean": 15.439930354033661,
+    "median": 12.0
+  },
+  "per_class": {
+    "ham": {
+      "count": 4516,
+      "share": 0.873669955503966,
+      "mean_chars": 70.90589016829053,
+      "median_chars": 53.0,
+      "min_chars": 2,
+      "max_chars": 910
+    },
+    "spam": {
+      "count": 653,
+      "share": 0.12633004449603405,
+      "mean_chars": 137.70444104134762,
+      "median_chars": 148.0,
+      "min_chars": 13,
+      "max_chars": 223
+    }
+  },
+  "source": {
+    "name": "UCI SMS Spam Collection",
+    "url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+    "license": "Provided for general and educational use (UCI terms of access)",
+    "notes": "Labels mapped ham=0, spam=1; exact duplicates removed; empty/missing texts dropped."
+  }
+}

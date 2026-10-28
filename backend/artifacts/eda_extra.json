@@ -1,0 +1,249 @@
+{
+  "top_terms": {
+    "ham": [
+      {
+        "term": "gt",
+        "count": 288
+      },
+      {
+        "term": "lt",
+        "count": 287
+      },
+      {
+        "term": "just",
+        "count": 282
+      },
+      {
+        "term": "ok",
+        "count": 256
+      },
+      {
+        "term": "lt gt",
+        "count": 254
+      },
+      {
+        "term": "ll",
+        "count": 233
+      },
+      {
+        "term": "got",
+        "count": 227
+      },
+      {
+        "term": "know",
+        "count": 226
+      },
+      {
+        "term": "like",
+        "count": 224
+      },
+      {
+        "term": "good",
+        "count": 217
+      },
+      {
+        "term": "come",
+        "count": 214
+      },
+      {
+        "term": "ur",
+        "count": 203
+      }
+    ],
+    "spam": [
+      {
+        "term": "free",
+        "count": 195
+      },
+      {
+        "term": "txt",
+        "count": 134
+      },
+      {
+        "term": "ur",
+        "count": 119
+      },
+      {
+        "term": "stop",
+        "count": 111
+      },
+      {
+        "term": "mobile",
+        "count": 109
+      },
+      {
+        "term": "text",
+        "count": 108
+      },
+      {
+        "term": "claim",
+        "count": 96
+      },
+      {
+        "term": "reply",
+        "count": 96
+      },
+      {
+        "term": "www",
+        "count": 83
+      },
+      {
+        "term": "prize",
+        "count": 82
+      },
+      {
+        "term": "just",
+        "count": 68
+      },
+      {
+        "term": "cash",
+        "count": 65
+      }
+    ]
+  },
+  "length_histogram": {
+    "ham": {
+      "bin_edges": [
+        2,
+        32,
+        62,
+        92,
+        123,
+        153,
+        183,
+        213,
+        244,
+        274,
+        304,
+        334,
+        365,
+        395,
+        425,
+        456,
+        486,
+        516,
+        546,
+        577,
+        607,
+        637,
+        667,
+        698,
+        728,
+        758,
+        788,
+        819,
+        849,
+        879,
+        910
+      ],
+      "counts": [
+        1051,
+        1566,
+        793,
+        419,
+        360,
+        204,
+        38,
+        23,
+        11,
+        19,
+        10,
+        3,
+        6,
+        2,
+        3,
+        3,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    "spam": {
+      "bin_edges": [
+        13,
+        20,
+        27,
+        34,
+        41,
+        48,
+        55,
+        62,
+        69,
+        76,
+        83,
+        90,
+        97,
+        104,
+        111,
+        118,
+        125,
+        132,
+        139,
+        146,
+        153,
+        160,
+        167,
+        174,
+        181,
+        188,
+        195,
+        202,
+        209,
+        216,
+        223
+      ],
+      "counts": [
+        2,
+        1,
+        4,
+        2,
+        6,
+        7,
+        1,
+        6,
+        16,
+        8,
+        6,
+        8,
+        13,
+        18,
+        16,
+        24,
+        24,
+        61,
+        66,
+        96,
+        188,
+        66,
+        6,
+        3,
+        3,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "length_percentiles_chars": {
+    "p5": 23.0,
+    "p95": 160.0,
+    "p99": 273.3199999999997
+  },
+  "quality_flags": {
+    "multi_label_or_mixed_delimiters": "none detected",
+    "note": "Class imbalance ~5:1 means accuracy alone is misleading; spam-recall mistakes (missed spam) and ham false positives have different practical costs."
+  }
+}

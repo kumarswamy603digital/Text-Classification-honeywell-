@@ -1,0 +1,48 @@
+# Full stack: FastAPI backend (real fitted models) + nginx-served React frontend.
+#
+#   docker compose up --build
+#
+#   Frontend: http://localhost:8080   (nginx serves the SPA and proxies /api → backend)
+#   Backend:  http://localhost:8000/docs
+#
+# On first run the backend downloads the UCI dataset and trains all models
+# (a few minutes); artifacts are cached in the `backend-artifacts` volume so
+# subsequent starts serve immediately.
+
+services:
+  backend:
+    build:
+      context: ./backend
+    image: text-classification-backend
+    container_name: tcs-backend
+    environment:
+      CORS_ORIGINS: "http://localhost:8080,http://localhost:5173"
+      ENABLE_HISTORY: "true"
+    volumes:
+      - backend-artifacts:/app/artifacts
+      - backend-data:/app/data
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Empty → the SPA uses same-origin "/api/v1" and nginx proxies to the backend.
+        VITE_API_BASE_URL: ""
+    image: text-classification-frontend
+    container_name: tcs-frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  backend-artifacts:
+  backend-data:

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Environment / secrets
+.env
+*.local
+
+# Data & model artifacts (regenerable via scripts)
+backend/data/raw/*
+backend/data/processed/*
+backend/artifacts/*.joblib
+backend/artifacts/history.db
+# keep example configs and committed metrics for reproducibility
+!backend/.env.example
+!backend/artifacts/.gitkeep
+
+# Node / frontend
+node_modules/
+frontend/dist/
+*.local
+
+# Logs
+*.log
+backend/server_out.log
+backend/server_err.log
+frontend/dev_out.log
+frontend/dev_err.log
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,278 @@
+{
+  "task": "sms_spam_detection",
+  "positive_class": "spam",
+  "version": "1.0.0",
+  "trained_at": "2026-10-27T16:45:56.392953+00:00",
+  "selection_criterion": "best validation macro-F1 (3-fold stratified CV on train split)",
+  "final_evaluation": "held-out 20% test split, evaluated once after selection",
+  "tfidf_params": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.95,
+    "max_features": 50000,
+    "use_char_ngrams": false
+  },
+  "dataset": {
+    "name": "UCI SMS Spam Collection",
+    "n_samples": 5169,
+    "class_counts": {
+      "ham": 4516,
+      "spam": 653
+    }
+  },
+  "split": {
+    "strategy": "stratified 80/20 train/test, seed=42",
+    "n_train": 4135,
+    "n_test": 1034,
+    "duplicates_removed_before_split": 403
+  },
+  "models": [
+    {
+      "model_id": "mnb",
+      "name": "Multinomial Naive Bayes",
+      "version": "1.0.0",
+      "supports_predict_proba": true,
+      "notes": "Fast probabilistic baseline; assumes feature independence.",
+      "best_params": {
+        "alpha": 0.05
+      },
+      "validation_macro_f1": 0.9647240497828081,
+      "test_metrics": {
+        "n_evaluated": 1034,
+        "accuracy": 0.9835589941972921,
+        "precision_spam": 0.9672131147540983,
+        "recall_spam": 0.9007633587786259,
+        "f1_spam": 0.932806324110672,
+        "macro_f1": 0.9617199664630495,
+        "weighted_f1": 0.9833073280646311,
+        "confusion_matrix": [
+          [
+            899,
+            4
+          ],
+          [
+            13,
+            118
+          ]
+        ],
+        "confusion_labels": [
+          "ham",
+          "spam"
+        ],
+        "per_class": {
+          "ham": {
+            "precision": 0.9857456140350878,
+            "recall": 0.9955703211517165,
+            "f1": 0.990633608815427,
+            "support": 903
+          },
+          "spam": {
+            "precision": 0.9672131147540983,
+            "recall": 0.9007633587786259,
+            "f1": 0.932806324110672,
+            "support": 131
+          }
+        },
+        "roc_auc_spam": 0.9909293026637248,
+        "pr_auc_spam": 0.9730623195727252,
+        "balanced_threshold": {
+          "threshold": 0.29083223427597876,
+          "precision": 0.916030534351145,
+          "recall": 0.916030534351145
+        },
+        "error_breakdown": {
+          "true_negatives": 899,
+          "false_positives_spam_flag_on_ham": 4,
+          "false_negives_spam_missed": 13,
+          "true_positives": 118
+        }
+      }
+    },
+    {
+      "model_id": "logreg",
+      "name": "Logistic Regression",
+      "version": "1.0.0",
+      "supports_predict_proba": true,
+      "notes": "Linear probabilistic model; probabilities are well calibrated in practice for text tasks.",
+      "best_params": {
+        "C": 10.0
+      },
+      "validation_macro_f1": 0.9627450363878376,
+      "test_metrics": {
+        "n_evaluated": 1034,
+        "accuracy": 0.9806576402321083,
+        "precision_spam": 0.9743589743589743,
+        "recall_spam": 0.8702290076335878,
+        "f1_spam": 0.9193548387096774,
+        "macro_f1": 0.9541829138603333,
+        "weighted_f1": 0.9801860802203974,
+        "confusion_matrix": [
+          [
+            900,
+            3
+          ],
+          [
+            17,
+            114
+          ]
+        ],
+        "confusion_labels": [
+          "ham",
+          "spam"
+        ],
+        "per_class": {
+          "ham": {
+            "precision": 0.9814612868047983,
+            "recall": 0.9966777408637874,
+            "f1": 0.989010989010989,
+            "support": 903
+          },
+          "spam": {
+            "precision": 0.9743589743589743,
+            "recall": 0.8702290076335878,
+            "f1": 0.9193548387096774,
+            "support": 131
+          }
+        },
+        "roc_auc_spam": 0.9928567201778634,
+        "pr_auc_spam": 0.9749208343474586,
+        "balanced_threshold": {
+          "threshold": 0.2745742734413261,
+          "precision": 0.9389312977099237,
+          "recall": 0.9389312977099237
+        },
+        "error_breakdown": {
+          "true_negatives": 900,
+          "false_positives_spam_flag_on_ham": 3,
+          "false_negives_spam_missed": 17,
+          "true_positives": 114
+        }
+      }
+    },
+    {
+      "model_id": "linearsvc",
+      "name": "Linear SVM",
+      "version": "1.0.0",
+      "supports_predict_proba": false,
+      "notes": "Margin-based classifier. Decision scores are NOT probabilities; the API reports no confidence for this model.",
+      "best_params": {
+        "C": 4.0
+      },
+      "validation_macro_f1": 0.9700842535887002,
+      "test_metrics": {
+        "n_evaluated": 1034,
+        "accuracy": 0.9825918762088974,
+        "precision_spam": 0.959349593495935,
+        "recall_spam": 0.9007633587786259,
+        "f1_spam": 0.9291338582677166,
+        "macro_f1": 0.9596055178879928,
+        "weighted_f1": 0.9823561186876575,
+        "confusion_matrix": [
+          [
+            898,
+            5
+          ],
+          [
+            13,
+            118
+          ]
+        ],
+        "confusion_labels": [
+          "ham",
+          "spam"
+        ],
+        "per_class": {
+          "ham": {
+            "precision": 0.9857299670691547,
+            "recall": 0.9944629014396457,
+            "f1": 0.9900771775082691,
+            "support": 903
+          },
+          "spam": {
+            "precision": 0.959349593495935,
+            "recall": 0.9007633587786259,
+            "f1": 0.9291338582677166,
+            "support": 131
+          }
+        },
+        "error_breakdown": {
+          "true_negatives": 898,
+          "false_positives_spam_flag_on_ham": 5,
+          "false_negives_spam_missed": 13,
+          "true_positives": 118
+        }
+      }
+    },
+    {
+      "model_id": "cnb",
+      "name": "Complement Naive Bayes",
+      "version": "1.0.0",
+      "supports_predict_proba": true,
+      "notes": "Designed for imbalanced text data; uses complements of class stats.",
+      "best_params": {
+        "alpha": 1.0
+      },
+      "validation_macro_f1": 0.9546617162358412,
+      "test_metrics": {
+        "n_evaluated": 1034,
+        "accuracy": 0.9825918762088974,
+        "precision_spam": 0.9669421487603306,
+        "recall_spam": 0.8931297709923665,
+        "f1_spam": 0.9285714285714286,
+        "macro_f1": 0.9593297671491504,
+        "weighted_f1": 0.9822944067835809,
+        "confusion_matrix": [
+          [
+            899,
+            4
+          ],
+          [
+            14,
+            117
+          ]
+        ],
+        "confusion_labels": [
+          "ham",
+          "spam"
+        ],
+        "per_class": {
+          "ham": {
+            "precision": 0.9846659364731654,
+            "recall": 0.9955703211517165,
+            "f1": 0.9900881057268722,
+            "support": 903
+          },
+          "spam": {
+            "precision": 0.9669421487603306,
+            "recall": 0.8931297709923665,
+            "f1": 0.9285714285714286,
+            "support": 131
+          }
+        },
+        "roc_auc_spam": 0.983160457508052,
+        "pr_auc_spam": 0.9614828789209643,
+        "balanced_threshold": {
+          "threshold": 0.4757790194412065,
+          "precision": 0.9083969465648855,
+          "recall": 0.9083969465648855
+        },
+        "error_breakdown": {
+          "true_negatives": 899,
+          "false_positives_spam_flag_on_ham": 4,
+          "false_negives_spam_missed": 14,
+          "true_positives": 117
+        }
+      }
+    }
+  ],
+  "selected_model_id": "linearsvc",
+  "available_model_ids": [
+    "mnb",
+    "logreg",
+    "linearsvc",
+    "cnb"
+  ]
+}
